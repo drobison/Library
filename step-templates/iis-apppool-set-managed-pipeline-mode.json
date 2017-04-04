@@ -8,7 +8,7 @@
     "Octopus.Action.Script.Syntax": "PowerShell",
     "Octopus.Action.Script.ScriptSource": "Inline",
     "Octopus.Action.RunOnServer": "false",
-    "Octopus.Action.Script.ScriptBody": "$AppPoolName = $OctopusParameters[\"$AppPoolName\"]\r\n$Mode = $OctopusParameters[\"PiplelineMode\"]\r\n\r\nImport-Module WebAdministration\r\n\r\nGet-ChildItem IIS:\\AppPools | ?{$_.Name -eq $AppPoolName} | Select-Object -ExpandProperty PSPath | %{ Set-ItemProperty $_ managedPipelineMode $mode -Verbose}",
+    "Octopus.Action.Script.ScriptBody": "$AppPoolName = $OctopusParameters[\"AppPoolName\"]\r\n$Mode = $OctopusParameters[\"PipelineMode\"]\r\n\r\nImport-Module WebAdministration\r\n\r\nGet-ChildItem IIS:\\AppPools | ?{$_.Name -eq $AppPoolName} | Select-Object -ExpandProperty PSPath | %{ Set-ItemProperty $_ managedPipelineMode $mode -Verbose}",
     "Octopus.Action.Script.ScriptFileName": null,
     "Octopus.Action.Package.FeedId": null,
     "Octopus.Action.Package.PackageId": null
@@ -27,9 +27,9 @@
     },
     {
       "Id": "f6ad588b-a41c-4e14-bd15-bb4d8830acc2",
-      "Name": "PiplelineMode",
+      "Name": "PipelineMode",
       "Label": "Managed Pipeline Mode",
-      "HelpText": "The Managed Pipleline mode to be set to",
+      "HelpText": "The Managed Pipeline mode to be set to",
       "DefaultValue": "Classic",
       "DisplaySettings": {
         "Octopus.ControlType": "Select",
@@ -38,8 +38,8 @@
       "Links": {}
     }
   ],
-  "LastModifiedOn": "2017-02-14T00:00:00.386+00:00",
-  "LastModifiedBy": "drobison",
+  "LastModifiedOn": "2017-04-04T17:15:00.000+08:00",
+  "LastModifiedBy": "MikeAirey",
   "$Meta": {
     "ExportedAt": "2017-02-14T21:55:44.314Z",
     "OctopusVersion": "3.5.1",
